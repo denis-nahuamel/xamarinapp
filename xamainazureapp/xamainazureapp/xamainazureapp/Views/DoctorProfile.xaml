@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xamainazureapp.Views.DoctorProfile"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="estiloCuadriculaAdmin" TargetType="Label" >
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout>
+                <StackLayout BackgroundColor="#31a6ff" Padding="0,20,0,20">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="user.png" WidthRequest="100" HeightRequest="100" Margin="10"></Image>
+                        <StackLayout VerticalOptions="Center">
+                            <Label x:Name="nombreUsuario" FontSize="20"  Text="Primer nombre" TextColor="White"></Label>
+                            <Label x:Name="cargoUsuario"  TextColor="White" Text="apellidos"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="" IsVisible="False"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="interfazAdministrador">
+        <!-- Textos de bienvenida -->
+       
+
+        <!-- Botones de navegacion -->
+        <Grid Margin="5,0,5,0" WidthRequest="800">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="rgba(27, 112, 197, 0.19)" Padding="0,20,0,20">
+                <Image Source="user.png"></Image>
+                <Label   Text="Pacientes" HorizontalOptions="Center"></Label>
+            </StackLayout>
+
+            <!-- Ir A la Página Listar Personal -->
+                        <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="rgba(27, 112, 197, 0.19)"  Padding="0,20,0,20">
+                <Image Source="user.png"></Image>
+                <Label  Text="Personal" HorizontalOptions="Center"></Label>
+         </StackLayout>
+                        
+   </Grid>
+  </StackLayout>
+ </StackLayout>
+ </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
