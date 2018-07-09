@@ -42,7 +42,7 @@
 
                         <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="rgba(27, 112, 197, 0.19)" Padding="0,20,0,20">
                 <Image Source="user.png"></Image>
-                <Label   Text="Pacientes" HorizontalOptions="Center"></Label>
+                <Label   Text="Pacientes holaa" HorizontalOptions="Center"></Label>
             </StackLayout>
 
             <!-- Ir A la Página Listar Personal -->
