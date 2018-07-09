@@ -12,6 +12,7 @@ namespace xamainazureapp.Services
         [Get("/api/Doctors/{id}")]
         Task<Doctor> GetDoctor(int id);//Listado de doctores
         [Post("/api/Doctors/Entrar")]
+        //nuevo comentario
         Task Login([Body] Login makeUp);
     }
 }
