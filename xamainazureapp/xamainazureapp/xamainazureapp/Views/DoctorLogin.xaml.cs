@@ -59,9 +59,13 @@ namespace xamainazureapp.Views
                     {
 
                         Doctor medico = new Doctor();
-                        App.Current.Properties["usuario"] = respuesta["Documento"];
-                        App.Current.Properties["contrasenia"] = respuesta["Contrasenia"];
-                        App.Current.SavePropertiesAsync();
+                        string nombre = respuesta["Nombre"];
+                        string apellidos = respuesta["Apellidos"];
+                        int idMedico = respuesta["DoctorID"];
+                        App.SetProperties("logueado", "si");
+                        App.SetProperties("nombres", nombre);
+                        App.SetProperties("apellidos",apellidos);
+                        App.SetProperties("idMedico", idMedico);
                         medico.Nombre = respuesta.Nombre;
                         medico.Apellidos = respuesta.Apellidos;
                         medico.Email = respuesta.Email;

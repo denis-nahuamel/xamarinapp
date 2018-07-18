@@ -1,4 +1,4 @@
-﻿using SQLite;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,6 @@ namespace xamainazureapp.Models
 {
    public class Doctor
     {
-        [PrimaryKey,AutoIncrement]
         public int DoctorID { get; set; }
         public string Nombre { get; set; }
 

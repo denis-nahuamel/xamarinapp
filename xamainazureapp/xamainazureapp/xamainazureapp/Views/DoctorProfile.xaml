@@ -20,8 +20,8 @@
                     <StackLayout Orientation="Horizontal">
                         <Image Source="user.png" WidthRequest="100" HeightRequest="100" Margin="10"></Image>
                         <StackLayout VerticalOptions="Center">
-                            <Label x:Name="nombreUsuario" FontSize="20"  Text="Primer nombre" TextColor="White"></Label>
-                            <Label x:Name="cargoUsuario"  TextColor="White" Text="apellidos"></Label>
+                            <Label x:Name="nombre" FontSize="20"   TextColor="White"></Label>
+                            <Label x:Name="apellidos"  TextColor="White"></Label>
                         </StackLayout>
                     </StackLayout>
 
@@ -40,18 +40,21 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-                        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="rgba(27, 112, 197, 0.19)" Padding="0,20,0,20">
-                <Image Source="user.png"></Image>
-                <Label   Text="Pacientes holaa" HorizontalOptions="Center"></Label>
-            </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="Aqua" Padding="0,20,0,20">
+                    <Image Source="user.png"></Image>
+                    <Label   Text="Pacientes holaa" HorizontalOptions="Center"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="listPatient"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
 
-            <!-- Ir A la Página Listar Personal -->
-                        <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="rgba(27, 112, 197, 0.19)"  Padding="0,20,0,20">
-                <Image Source="user.png"></Image>
-                <Label  Text="Personal" HorizontalOptions="Center"></Label>
-         </StackLayout>
-                        
-   </Grid>
+                <!-- Ir A la Página Listar Personal -->
+                <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="Aqua"  Padding="0,20,0,20">
+                    <Image Source="user.png"></Image>
+                    <Label  Text="Personal" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+        </Grid>
   </StackLayout>
  </StackLayout>
  </ScrollView>

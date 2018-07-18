@@ -10,14 +10,26 @@ namespace xamainazureapp
 	{
         public static string Url = "http://backendazure420180627123231.azurewebsites.net";
         public static DoctorLogin Navigator { get; internal set; }
+        public static DoctorProfile doctorProfile { get; internal set; }
+        public static ListPatient listPatient { get; internal set; }
+        public static int idMedico;
         public App ()
 		{
 			InitializeComponent();
-            if (!App.Current.Properties.ContainsKey("contrasenia")  && !App.Current.Properties.ContainsKey("usuario"))
-                MainPage =new  DoctorProfile();
-            else
-			    MainPage = new DoctorLogin();
-		}
+            //Xamarin.Forms.Application.Current.Properties.Clear();
+            try {
+                if (Application.Current.Properties.ContainsKey("logueado"))//si existe
+                    MainPage =new NavigationPage( new DoctorProfile());//entra al perfil del medico
+                else
+                    MainPage = new NavigationPage(new DoctorLogin());//lo redirije al login
+            } catch (Exception ex)
+            {
+                MainPage = new NavigationPage(new DoctorLogin());//cualquier error, lo manda al login
+            }
+                   
+
+            
+        }
 
 		protected override void OnStart ()
 		{
@@ -33,5 +45,11 @@ namespace xamainazureapp
 		{
 			// Handle when your app resumes
 		}
-	}
+        public async static void SetProperties(string property, object value)
+        {
+            var app = (App)Application.Current;
+            app.Properties[property] = value;
+            await app.SavePropertiesAsync();
+        }
+    }
 }
