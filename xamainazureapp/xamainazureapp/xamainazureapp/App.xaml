@@ -124,7 +124,7 @@
                 <Setter Property="VerticalOptions"		Value="Start" />
                 <Setter Property="HorizontalOptions"	Value="FillAndExpand" />
             </Style>
-
+            
         </ResourceDictionary>
 
     </Application.Resources>

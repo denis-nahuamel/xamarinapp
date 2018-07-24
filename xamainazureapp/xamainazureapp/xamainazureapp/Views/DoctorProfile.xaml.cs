@@ -38,7 +38,8 @@ namespace xamainazureapp.Views
         private async void listPatient(object sender, EventArgs e)
         {
             int idMedico =Convert.ToInt16( App.Current.Properties["idMedico"]);
-          await Navigation.PushAsync(  new ListPatient(idMedico));
+            await Navigation.PushAsync(  new ListPatient(idMedico));
+            //await Navigation.PushAsync(new ListPatientsA());
         }
 
     }

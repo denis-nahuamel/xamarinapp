@@ -4,10 +4,27 @@
              x:Class="xamainazureapp.Views.ListReport"
              Title="Reportes">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="8">
+                <StackLayout>
+                    <ListView x:Name="Reports" IsPullToRefreshEnabled="true">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Padding="20,10">
+                                        <Label FontAttributes="Bold" Text="Fecha:"  HorizontalOptions="StartAndExpand"/>
+                                        <Label Text="{Binding Fecha}" FontSize="Medium" MinimumWidthRequest="75" TextColor="Gray" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,9 @@ namespace xamainazureapp
         public static DoctorLogin Navigator { get; internal set; }
         public static DoctorProfile doctorProfile { get; internal set; }
         public static ListPatient listPatient { get; internal set; }
+        public static ListReport listReport { get; internal set; }
         public static int idMedico;
+        
         public App ()
 		{
 			InitializeComponent();
@@ -26,9 +28,15 @@ namespace xamainazureapp
             {
                 MainPage = new NavigationPage(new DoctorLogin());//cualquier error, lo manda al login
             }
-                   
+            var baseStyle = new Style(typeof(Frame))
+            {
+                Setters = {
+                new Setter { Property = Frame.BackgroundColorProperty, Value =new Color(238, 220, 220 , 0.5)    }
 
-            
+            }
+            };
+
+
         }
 
 		protected override void OnStart ()
@@ -51,5 +59,6 @@ namespace xamainazureapp
             app.Properties[property] = value;
             await app.SavePropertiesAsync();
         }
+       
     }
 }

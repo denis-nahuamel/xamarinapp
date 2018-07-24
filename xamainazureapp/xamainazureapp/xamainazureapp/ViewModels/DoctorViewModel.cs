@@ -44,6 +44,7 @@ namespace xamainazureapp.ViewModels
         #endregion
         public DoctorViewModel()
         {
+
             _patientsService = new DoctorService();//inicializa el servicio con los datos
             Patients = new ReactiveList<Patient>();//creacion de la lista reactiva
             LoadPatients = ReactiveCommand.CreateFromObservable(LoadPatientsImpl);//carga los pacientes de la cache
@@ -56,16 +57,31 @@ namespace xamainazureapp.ViewModels
            // LoadPatients.ThrownExceptions.Select(exception => MessageBox.Show(exception.Message));
         }
         #region==================cargado de cache=====================
+        /* IObservable<IEnumerable<Patient>> LoadPatientsFromCache()
+         {
+             return BlobCache
+                 .LocalMachine
+                 .GetOrFetchObject<IEnumerable<Patient>>
+                 (CacheKey,
+                  async () =>
+                     await _patientsService.Get(idMedico), CacheExpiry);
+         }*/
         IObservable<IEnumerable<Patient>> LoadPatientsFromCache()
         {
-            return BlobCache
+            try {
+                return BlobCache
                 .LocalMachine
-                .GetOrFetchObject<IEnumerable<Patient>>
+                .GetAndFetchLatest<IEnumerable<Patient>>
                 (CacheKey,
                  async () =>
-                    await _patientsService.Get(idMedico), CacheExpiry);
+                    await _patientsService.Get(idMedico));
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            
         }
-
         void CacheArticlesImpl(IEnumerable<Patient> patients)
         {
             BlobCache

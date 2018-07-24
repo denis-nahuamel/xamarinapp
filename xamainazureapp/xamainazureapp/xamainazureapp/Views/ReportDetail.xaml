@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xamainazureapp.Views.ReportDetail"
+             xmlns:cv="clr-namespace:CardView;assembly=CardView">
+    <ContentPage.Content>
+       <ScrollView>
+        <StackLayout Padding="20">
+            
+            <Frame HasShadow="True"  >
+
+                <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
+                    <Label x:Name="lblGlucosa" Text="Glucosa" />
+                    <Label x:Name="txtGlucosa"  HorizontalOptions="EndAndExpand"  />
+                </StackLayout>
+
+            </Frame>
+            <Frame HasShadow="True"  >
+                <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
+                    <Label x:Name="lblPeso" Text="Peso" />
+                    <Label x:Name="txtPeso"  HorizontalOptions="EndAndExpand"  />
+                </StackLayout>
+            </Frame>
+                <Frame HasShadow="True" >
+                    <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
+                        <Label x:Name="lblTemperatura" Text="Temperatura" />
+                        <Label x:Name="txtTemperatura"  HorizontalOptions="EndAndExpand"  />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" >
+                    <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
+                        <Label x:Name="lblSpO2" Text="SPO2" />
+                        <Label x:Name="txtSPO2" HorizontalOptions="EndAndExpand"  />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" >
+                    <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
+                        <Label x:Name="lblRitmo" Text="Ritmo Cardiaco " />
+                        <Label x:Name="txtRitmo"  HorizontalOptions="EndAndExpand"  />
+                    </StackLayout>
+                </Frame>
+                <Frame HasShadow="True" >
+                    <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
+                        <Label x:Name="lblPastillas" Text="Pastillas " />
+                        <Switch  HorizontalOptions="EndAndExpand" x:Name="swPastillas"></Switch>
+                    </StackLayout>
+                </Frame>
+
+            <Frame HasShadow="True" >
+            <StackLayout >
+                <Label x:Name="lblSuenio" Text="Sueño " />
+                    <StackLayout Margin="10,0,30,0" Orientation="Horizontal">
+                        <Label x:Name="lblInicio" Text="Inicio " />
+                        <Label x:Name="txtInicio"  HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Margin="10,0,30,0" Orientation="Horizontal">
+                        <Label x:Name="lblDuracion" Text="Duracion " />
+                        <Label x:Name="txtDuracion"  HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Margin="10,0,30,0" Orientation="Horizontal">
+                        <Label x:Name="lblInterrupciones" Text="Interrupciones " />
+                        <Label x:Name="txtInterrupciones"  HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Margin="10,0,30,0" Orientation="Horizontal">
+                        <Label x:Name="lblCalidad" Text="Calidad (del 1 al 5) " />
+                        <Label x:Name="txtCalidad"  HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+        </Frame>
+                <Frame HeightRequest="150">
+                    <StackLayout >
+                        <Label x:Name="lblComidas" Text="Comidas " />
+                        <ListView x:Name="foodList">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <StackLayout Margin="10,0,30,0" Orientation="Horizontal">
+                                                <Label Text="Cantidad: " />
+                                                <Label Text="{Binding Cantidad}"  HorizontalOptions="EndAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Margin="10,0,30,0" Orientation="Horizontal">
+                                                <Label Text="Nombre: " />
+                                                <Label Text="{Binding Nombre}"  HorizontalOptions="EndAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+           
+        
+                <Frame HasShadow="True"  Margin="60,10,60,0" HeightRequest="20" WidthRequest="100" CornerRadius="60" >
+                    <StackLayout >
+                        <Label x:Name="lblComentario" Text="Comentar Reporte " />
+
+                    </StackLayout>
+                </Frame>
+        </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+    <!--  <cv:CardView>
+                    <cv:CardView.CardViewContent>
+                        <StackLayout>
+                            <Label Text="I am a label, inside a StackLayout inside the CardView Content"></Label>
+                            <Label Text="I may not look nice, but I don't have all my properties set."></Label>
+                        </StackLayout>
+                    </cv:CardView.CardViewContent>
+                </cv:CardView>-->
+</ContentPage>

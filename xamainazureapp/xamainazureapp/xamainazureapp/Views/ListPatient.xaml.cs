@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using xamainazureapp.ViewModels;
-using xamainazureapp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
