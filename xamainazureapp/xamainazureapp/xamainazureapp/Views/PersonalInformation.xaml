@@ -78,20 +78,21 @@
                         <Entry x:Name="txtDireccion"   Placeholder="Dirección" Style="{StaticResource entryStyle}"  />
                     </StackLayout>
                 </Frame>
+                
                 <Frame HasShadow="True"  BackgroundColor="Wheat">
                     <Label Text="Cambiar Contraseña:" TextColor="White"></Label>
                     <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Vertical" >
-                            <Label x:Name="lblFechaNac" Text="Contraseña Actual : " VerticalOptions="Center" />
-                            <Entry x:Name="txtAContra"   Placeholder="Contraseña Actual" Style="{StaticResource entryStyle}"  />
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="lblFechaNac" Text="Contraseña Actual : " VerticalOptions="Center"  />
+                            <Entry x:Name="txtAContra" IsPassword="true"  Placeholder="Contraseña Actual" Style="{StaticResource entryStyle}"  VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
                             <Label x:Name="lblFec" Text="Nueva Contraseña : " VerticalOptions="Center" />
-                            <Entry x:Name="txtNContra"   Placeholder="Nueva Contraseña" Style="{StaticResource entryStyle}"  />
+                            <Entry x:Name="txtNContra" IsPassword="true"  Placeholder="Nueva Contraseña" Style="{StaticResource entryStyle}"  />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" >
                             <Label x:Name="lblF" Text="Repetir Contraseña : " VerticalOptions="Center" />
-                            <Entry x:Name="txtNContraR"   Placeholder="Repetir Contraseña" Style="{StaticResource entryStyle}"  />
+                            <Entry x:Name="txtNContraR"  IsPassword="true" Placeholder="Repetir Contraseña" Style="{StaticResource entryStyle}"  />
                         </StackLayout>
                     </StackLayout>
                     
@@ -102,9 +103,9 @@
                 <Frame HasShadow="True" >
                     <StackLayout Orientation="Horizontal" Margin="0,0,30,0">
                         <controls:BindableRadioGroup x:Name="radioButtonGroup" Orientation="Horizontal"  >
-                            <controls:CustomRadioButton Text="Varón"  Checked="{Binding varon, Mode=TwoWay}"  ></controls:CustomRadioButton>
+                            <controls:CustomRadioButton Text="Varón"  Checked="{Binding varon, Mode=TwoWay}" x:Name="rbVaron" ></controls:CustomRadioButton>
 
-                            <controls:CustomRadioButton Text="Mujer"  Margin="50,0,0,0" Checked="{Binding mujer, Mode=TwoWay}"></controls:CustomRadioButton>
+                            <controls:CustomRadioButton Text="Mujer"  Margin="50,0,0,0" Checked="{Binding mujer, Mode=TwoWay}"  x:Name="rbMujer"></controls:CustomRadioButton>
                         </controls:BindableRadioGroup>
                       </StackLayout>
                 </Frame>

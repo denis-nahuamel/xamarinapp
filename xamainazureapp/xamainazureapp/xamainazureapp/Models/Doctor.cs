@@ -13,7 +13,7 @@ namespace xamainazureapp.Models
         public string Apellidos { get; set; }
         public string Email { get; set; }
 
-        public int Documento { get; set; }
+        public string Documento { get; set; }
 
         public string Numero { get; set; }
         public string FechaNacimiento { get; set; }
