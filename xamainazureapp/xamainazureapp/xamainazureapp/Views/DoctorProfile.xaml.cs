@@ -27,7 +27,7 @@ namespace xamainazureapp.Views
             //call and load data
             nombre.Text = App.Current.Properties["nombres"].ToString();
             apellidos.Text = App.Current.Properties["apellidos"].ToString();
-
+            NavigationPage.SetHasBackButton(this, false);
         }
         protected override void OnAppearing()
         {
@@ -40,6 +40,16 @@ namespace xamainazureapp.Views
             int idMedico =Convert.ToInt16( App.Current.Properties["idMedico"]);
             await Navigation.PushAsync(  new ListPatient(idMedico));
             //await Navigation.PushAsync(new ListPatientsA());
+        }
+        private async void personalInformation(object sender, EventArgs e)
+        {
+            int idMedico = Convert.ToInt16(App.Current.Properties["idMedico"]);
+            await Navigation.PushAsync(new PersonalInformation(idMedico));
+            //await Navigation.PushAsync(new ListPatientsA());
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
         }
 
     }

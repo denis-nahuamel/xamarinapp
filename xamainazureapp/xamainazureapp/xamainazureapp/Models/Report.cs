@@ -6,6 +6,7 @@ namespace xamainazureapp.Models
 {
    public class Report
     {
+        public int ReporteID { get; set; }
         public int Peso { get; set; }
         public int Glucosa { get; set; }
         public string Temperatura { get; set; }
@@ -15,5 +16,6 @@ namespace xamainazureapp.Models
         public bool Pastillas { get; set; }
         public List<Food> Comida { get; set; }
         public string Fecha { get; set; }
+        public List<Comment> Comentarios { get; set; }
     }
 }

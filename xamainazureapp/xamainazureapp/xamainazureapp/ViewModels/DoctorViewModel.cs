@@ -44,16 +44,21 @@ namespace xamainazureapp.ViewModels
         #endregion
         public DoctorViewModel()
         {
-
-            _patientsService = new DoctorService();//inicializa el servicio con los datos
-            Patients = new ReactiveList<Patient>();//creacion de la lista reactiva
-            LoadPatients = ReactiveCommand.CreateFromObservable(LoadPatientsImpl);//carga los pacientes de la cache
-            agregaPaciente = ReactiveCommand.Create(AddPatient);
-            LoadPatients.Skip(1)
-                        .Subscribe(CacheArticlesImpl);
-            LoadPatients.ObserveOn(RxApp.MainThreadScheduler)
-                        .Subscribe(MapArticlesImpl);
-            navigate = new NavigationService();
+            try
+            {
+                _patientsService = new DoctorService();//inicializa el servicio con los datos
+                Patients = new ReactiveList<Patient>();//creacion de la lista reactiva
+                LoadPatients = ReactiveCommand.CreateFromObservable(LoadPatientsImpl);//carga los pacientes de la cache
+                agregaPaciente = ReactiveCommand.Create(AddPatient);
+                LoadPatients.Skip(1)
+                            .Subscribe(CacheArticlesImpl);
+                LoadPatients.ObserveOn(RxApp.MainThreadScheduler)
+                            .Subscribe(MapArticlesImpl);
+                navigate = new NavigationService();
+            }
+            catch {
+            }
+           
            // LoadPatients.ThrownExceptions.Select(exception => MessageBox.Show(exception.Message));
         }
         #region==================cargado de cache=====================
@@ -84,17 +89,30 @@ namespace xamainazureapp.ViewModels
         }
         void CacheArticlesImpl(IEnumerable<Patient> patients)
         {
-            BlobCache
+            try
+            {
+                BlobCache
                 .LocalMachine
                 .InsertObject(CacheKey, patients, CacheExpiry)
                 .Wait();
+            }
+            catch(Exception ex) {
+                
+            }
+            
         }
 
         IObservable<IEnumerable<Patient>> LoadPatientsImpl()
         {
+            try {
+                return !Patients.Any() ?
+                    LoadPatientsFromCache() :
+                    _patientsService.Get(idMedico);
+            }
+            catch { }
             return !Patients.Any() ?
-                LoadPatientsFromCache() :
-                _patientsService.Get(idMedico);
+                    LoadPatientsFromCache() :
+                    _patientsService.Get(idMedico);
         }
 
         void MapArticlesImpl(IEnumerable<Patient> patients)

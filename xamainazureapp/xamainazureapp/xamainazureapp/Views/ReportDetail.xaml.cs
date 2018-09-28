@@ -12,21 +12,33 @@ namespace xamainazureapp.Views
         // string fecha;
         Report Report = new Report();
         Sleep Sleep = new Sleep();
+        Comment comment = new Comment();
         int cantidad;
         string nombre;
+        int height = 40;
+        bool commentExist = false;
         public List<Food> FoodList { get; set; }
         public ReportDetail (Report report)
 		{
 			InitializeComponent ();
             Report = report;
+            height += 40;
+            frameFood.HeightRequest = 20 + Report.Comida.Count * 47;
             Sleep = report.Suenio[0];
             FoodList=new List<Food>();
             DarValores();
             foodList.ItemsSource = FoodList;
-           // FoodList = report.Comida;
-            //fecha.Text = report.Fecha.ToString();
+            if(report.Comentarios.Count!=0)
+            {
+                commentExist = true;
+                comment = report.Comentarios[0];
+            }
 
 		}
+        async void frTapped(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new SendMessage(commentExist,Report.ReporteID,comment));
+        }
         void DarValores()
         {
             try

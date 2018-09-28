@@ -2,129 +2,38 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="xamainazureapp.App"
-             xmlns:infra="clr-namespace:xamainazureapp.Infraestructure;assembly=xamainazureapp">
+             >
     <Application.Resources>
-        <ResourceDictionary>
+        <ResourceDictionary >
 
             <Color x:Key="beige">#ffffeecc</Color>
 
-            <Image x:Key="radioOptionEnabled">
-                <Image.Source>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <OnPlatform.iOS>
-                            <FileImageSource File="radioption105x105.png"/>
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            <FileImageSource File="radioption105x105.png"/>
-                        </OnPlatform.Android>
-                        <OnPlatform.WinPhone>
-                            <FileImageSource File="Assets/radioption105x105.png"/>
-                        </OnPlatform.WinPhone>
-                    </OnPlatform>
-                </Image.Source>
-            </Image>
-
-            <Image x:Key="radioOptionDisabled">
-                <Image.Source>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <OnPlatform.iOS>
-                            <FileImageSource File="radioption105x105readonly.png"/>
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            <FileImageSource File="radioption105x105readonly.png"/>
-                        </OnPlatform.Android>
-                        <OnPlatform.WinPhone>
-                            <FileImageSource File="Assets/radioption105x105readonly.png"/>
-                        </OnPlatform.WinPhone>
-                    </OnPlatform>
-                </Image.Source>
-            </Image>
-
-            <Image x:Key="radioOptionSelectedEnabled">
-                <Image.Source>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <OnPlatform.iOS>
-                            <FileImageSource File="radioption_selected105x105.png"/>
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            <FileImageSource File="radioption_selected105x105.png"/>
-                        </OnPlatform.Android>
-                        <OnPlatform.WinPhone>
-                            <FileImageSource File="Assets/radioption_selected105x105.png"/>
-                        </OnPlatform.WinPhone>
-                    </OnPlatform>
-                </Image.Source>
-            </Image>
-
-            <Image x:Key="radioOptionSelectedDisabled">
-                <Image.Source>
-                    <OnPlatform x:TypeArguments="ImageSource">
-                        <OnPlatform.iOS>
-                            <FileImageSource File="radioption_selected105x105readonly.png"/>
-                        </OnPlatform.iOS>
-                        <OnPlatform.Android>
-                            <FileImageSource File="radioption_selected105x105readonly.png"/>
-                        </OnPlatform.Android>
-                        <OnPlatform.WinPhone>
-                            <FileImageSource File="Assets/radioption_selected105x105readonly.png"/>
-                        </OnPlatform.WinPhone>
-                    </OnPlatform>
-                </Image.Source>
-            </Image>
-
-            <Style TargetType="Image" x:Key="imageRadioOptionSelected">
-                <Setter Property="Image.Source"		Value="{Binding Source={StaticResource radioOptionSelectedDisabled}, Path=Source}" />
-
-                <Style.Triggers>
-                    <Trigger TargetType="Image" Property="IsEnabled" Value="true">
-                        <Trigger.Setters>
-                            <Setter Property="Image.Source" Value="{Binding Source={StaticResource radioOptionSelectedEnabled}, Path=Source}" />
-                        </Trigger.Setters>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-
-            <Style TargetType="Image" x:Key="imageRadioOptionUnSelected">
-                <Setter Property="Image.Source"		Value="{Binding Source={StaticResource radioOptionDisabled}, Path=Source}" />
-
-                <Style.Triggers>
-                    <Trigger TargetType="Image" Property="IsEnabled" Value="true">
-                        <Trigger.Setters>
-                            <Setter Property="Image.Source" Value="{Binding Source={StaticResource radioOptionEnabled}, Path=Source}" />
-                        </Trigger.Setters>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-
+          
             <Style TargetType="Label">
-                <Setter Property="TextColor"	Value="Black" />
+                <Setter Property="TextColor"	Value="#201C1C" />
                 <Setter Property="FontSize">
                     <Setter.Value>
                         <OnPlatform x:TypeArguments="x:Double"
 									Android="14"
-									iOS="12"
-									WinPhone="14"/>
+									iOS="12"/>
                     </Setter.Value>
                 </Setter>
             </Style>
-
-            <!-- options label -->
-            <Style TargetType="Label" x:Key="radioOptionLabel" >
-                <Setter Property="TextColor"	Value="Black" />
-                <Setter Property="FontSize"			Value="Medium" />
-                <Setter Property="VerticalOptions"	Value="Center" />
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="BorderRadius" Value="80"/>
+                <Setter Property="HeightRequest" Value="45"/>
+                <Setter Property="BorderColor" Value="#f47a7a"/>
+                <Setter Property="BorderWidth" Value="0.5"/>
+                <Setter Property="TextColor" Value="#f47a7a"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="180"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
             </Style>
 
-            <!-- options title (ex: gaston b. question) -->
-            <Style TargetType="Label" x:Key="optionGroupTitle" >
-                <!--BasedOn="{StaticResource Xamarin.Forms.Label}">-->
-                <Setter Property="TextColor"			Value="Black" />
-                <Setter Property="FontSize"				Value="Medium" />
-                <Setter Property="FontAttributes"		Value="Bold" />
-                <Setter Property="VerticalOptions"		Value="Start" />
-                <Setter Property="HorizontalOptions"	Value="FillAndExpand" />
-            </Style>
-            
+
         </ResourceDictionary>
 
     </Application.Resources>

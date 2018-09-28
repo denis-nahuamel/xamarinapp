@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xamainazureapp.Views.SendMessage"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="25" VerticalOptions="Center">
+            <StackLayout>
+                <Frame HeightRequest="50" CornerRadius="25" BackgroundColor="#fde0e0" x:Name="mensajeEnviado">
+                    <Label x:Name="lblMensaje" Text="Ningún mensaje Enviado."  HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="0,20,0,0">
+                <Editor HeightRequest="120" BackgroundColor="White" TextColor="Black" x:Name="edMensaje"></Editor>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,0">
+                <Button Text="Cancelar" WidthRequest="120"
+                        Style="{StaticResource buttonStyle}"
+                        x:Name="btnCancelar"></Button>
+                    <Button Text="Enviar" WidthRequest="120" 
+                            Style="{StaticResource buttonStyle}"
+                            x:Name="btnEnviar"></Button>
+            </StackLayout>
+            
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

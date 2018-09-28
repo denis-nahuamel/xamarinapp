@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using xamainazureapp.Views;
-using xamainazureapp.Views.Patient;
 
 namespace xamainazureapp.Services
 {
@@ -16,9 +15,7 @@ namespace xamainazureapp.Services
                 case "NewFlower":
                     await App.Current.MainPage.Navigation.PushAsync(new NewFlower());
                     break;
-                case "AddPatient":
-                    await App.Current.MainPage.Navigation.PushAsync(new AddPatient());
-                    break;
+               
             }
                
         }

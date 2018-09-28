@@ -9,42 +9,27 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" >
-
-                <Label HeightRequest="110"  
-                          HorizontalOptions="FillAndExpand" 
-                          Text="UiApp" 
-                          BackgroundColor="{StaticResource primary}"
-                          TextColor="White" 
-                          FontSize="40" 
-                          HorizontalTextAlignment="Center"
-                          VerticalTextAlignment="Center"/>
-
-                <Entry  Margin="20,40,20,0" 
+            <Frame  HorizontalOptions="Center" WidthRequest="250" VerticalOptions="Center"  HeightRequest="280">
+                <StackLayout >
+                    <Entry  Margin="20,40,20,0" 
                          HeightRequest="50" 
-                        x:Name="user"
+                        x:Name="user"                     
                          Placeholder="Usuario">
-                    
-                </Entry>
 
-                <Entry Margin="20,0,20,0" 
+                    </Entry>
+                    <Entry Margin="20,0,20,0" 
                        x:Name="password"
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Contraseña">
-                   
-                </Entry>
-
-                <Button Margin="20,0,20,0" 
-                         HeightRequest="50" 
-                         TextColor="White" 
+                    </Entry>
+                    <Button 
+                         WidthRequest="80"
+                         Style="{StaticResource buttonStyle}"  
                          Text="Entrar"  
-                          x:Name="entrar"
-                         BackgroundColor="{StaticResource primary}"
-                         HorizontalOptions="FillAndExpand"/>
-
-               
-
-            </StackLayout>
+                          x:Name="entrar"/>
+                </StackLayout>
+            </Frame>
+           
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

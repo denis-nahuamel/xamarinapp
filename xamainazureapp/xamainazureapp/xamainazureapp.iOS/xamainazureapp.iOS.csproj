@@ -162,6 +162,9 @@
     <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.FirebasePushNotification">
+      <Version>2.3.5-beta</Version>
+    </PackageReference>
     <PackageReference Include="Polly">
       <Version>6.0.0-v6alpha0001</Version>
     </PackageReference>
@@ -177,7 +180,7 @@
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
     <PackageReference Include="XamarinForms.CardView">
       <Version>1.1.1.5</Version>
     </PackageReference>

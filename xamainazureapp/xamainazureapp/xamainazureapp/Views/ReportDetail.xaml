@@ -67,7 +67,7 @@
                     </StackLayout>
                 </StackLayout>
         </Frame>
-                <Frame HeightRequest="150">
+                <Frame  x:Name="frameFood">
                     <StackLayout >
                         <Label x:Name="lblComidas" Text="Comidas " />
                         <ListView x:Name="foodList">
@@ -92,11 +92,15 @@
                 </Frame>
            
         
-                <Frame HasShadow="True"  Margin="60,10,60,0" HeightRequest="20" WidthRequest="100" CornerRadius="60" >
+                <Frame HasShadow="True" x:Name="frComentario" 
+                       Margin="60,10,60,0" HeightRequest="20" WidthRequest="100" CornerRadius="60" >
                     <StackLayout >
-                        <Label x:Name="lblComentario" Text="Comentar Reporte " />
+                        <Label x:Name="lblComentario" Text="Comentar Reporte " HorizontalOptions="Center" />
 
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="frTapped" NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
                 </Frame>
         </StackLayout>
     </ScrollView>

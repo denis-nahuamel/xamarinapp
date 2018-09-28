@@ -4,7 +4,7 @@
              x:Class="xamainazureapp.Views.ListPatient"
              Title="Listar Pacientes">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="add.png" Command="{Binding agregaPaciente} "></ToolbarItem>
+       
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>

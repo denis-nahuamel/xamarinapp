@@ -24,6 +24,7 @@ namespace xamainazureapp.Views
 			InitializeComponent ();
             entrar.Clicked += Entrar_Clicked;
             App.Navigator = this;
+            NavigationPage.SetHasNavigationBar(this, false);
 
         }
 
@@ -58,7 +59,8 @@ namespace xamainazureapp.Views
                     else
                     {
 
-                        Doctor medico = new Doctor();
+                        //Doctor medico = new Doctor();
+                      
                         string nombre = respuesta["Nombre"];
                         string apellidos = respuesta["Apellidos"];
                         int idMedico = respuesta["DoctorID"];
@@ -66,12 +68,20 @@ namespace xamainazureapp.Views
                         App.SetProperties("nombres", nombre);
                         App.SetProperties("apellidos",apellidos);
                         App.SetProperties("idMedico", idMedico);
-                        medico.Nombre = respuesta.Nombre;
-                        medico.Apellidos = respuesta.Apellidos;
-                        medico.Email = respuesta.Email;
-                            
 
-                        App.Current.MainPage = new DoctorProfile(); // Navegacion a la pagina usuario
+                       /* App.SetProperties("email", respuesta.Email);
+                        App.SetProperties("documento", respuesta.Documento);
+                        App.SetProperties("numero",respuesta.Numero);
+                        App.SetProperties("fechaNacimiento", respuesta.FechaNacimiento);
+                        App.SetProperties("distrito", respuesta.Distrito);
+                        App.SetProperties("direccion", respuesta.Direccion);
+                        App.SetProperties("sexo",respuesta.Sexo);
+                        App.SetProperties("codigo", respuesta.Codigo);
+                        App.SetProperties("registro",respuesta.Registro);*/
+
+
+                        // App.Current.MainPage = new DoctorProfile(); // Navegacion a la pagina usuario
+                        await Navigation.PushAsync(new DoctorProfile());
 
                     }
                 }

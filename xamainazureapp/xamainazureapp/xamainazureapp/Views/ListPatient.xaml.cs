@@ -13,6 +13,12 @@ namespace xamainazureapp.Views
     public partial class ListPatient : ContentPage, IViewFor<DoctorViewModel>
     {
         readonly CompositeDisposable _bindingsDisposable = new CompositeDisposable();
+        public DoctorViewModel ViewModel { get; set; }
+        object IViewFor.ViewModel
+        {
+            get { return ViewModel; }
+            set { ViewModel = (DoctorViewModel)value; }
+        }
         int idMedico;
       
         public ListPatient()
@@ -75,12 +81,7 @@ namespace xamainazureapp.Views
         }
 
         #region ViewModel Setup
-        public DoctorViewModel ViewModel { get; set; }
-        object IViewFor.ViewModel
-        {
-            get { return ViewModel; }
-            set { ViewModel = (DoctorViewModel)value; }
-        }
+       
         #endregion
     }
 }
